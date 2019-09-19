@@ -89,3 +89,110 @@ y
 #Quando oggetti di tipo diverso vengono mescolati in un unico vettore, la
 #coercizione (conversione) viene applicata, ogni elemento appartenente al
 #vettore diviene della stessa classe.
+
+#Gli oggetti possono essere esplicitamente sottoposti a coercizione da una
+#classe ad altra classe utilizzando la funzione as.* se disponibile.
+
+x <- 0:6
+x
+class(x)
+y <- as.numeric(x)
+y
+class(y)
+z <- as.logical(x)
+z
+class(z)
+a <- as.character(x)
+a
+class(a)
+b <- as.complex(x)
+b
+class(b)
+
+#Un'operazione di coercizione che non sia opportunamente definita porta ad
+#ottenere come risultato NAs.
+
+x <- c("a", "b", "c")
+x
+y <- as.numeric(x)
+y
+
+x <- c("0", "1", "2")
+x
+y <- as.numeric(x)
+y
+
+x <- c("a", "b", "c")
+x
+z <- as.logical(x)
+z
+
+#Nota: per determinare di che tipo e' un oggetto usiamo is.*
+
+is.vector(x)
+
+#funzione names : attribuisce un nome agli elementi del vettore
+
+voti <- c(5,7,6,7)
+y <- c("matematica", "latino", "storia", "inglese")
+names(voti) <- y
+voti ["latino"]
+voti[c("latino","storia")]
+
+# funzioni utili
+x <- c("a", "d", "b", "c")
+l <- length(x)
+l
+
+s <- sort(x) # ordinare - ordine crescente e' default
+s
+
+sd <- sort(x, decreasing = T) # ordinare in ordine decrescente
+sd
+
+x <- c(1,2,3,4.5,-6)
+somma <- sum(x) # somma
+somma
+
+prodotto <- prod(x) # prodotto
+prodotto
+
+a <- any(x<0) # verifica se ci sono elementi che soddisfano la condizione (risposta T o F)
+a
+
+minimo <- min(x) # minimo
+minimo 
+
+massimo <- max(x) # massimo
+massimo
+
+media <- mean(x) # media
+media
+
+varianza <- var(x) # varianza
+varianza
+
+deviazione <- sd(x) # deviazione standard
+deviazione
+
+r <- range (x) # valore minimo e valore massimo 
+r
+
+statistiche <- summary(x) # principali statistiche
+statistiche
+
+#Lavorare con gli NA (risultato delle operazioni e' sempre NA)
+
+NA > 5
+NA + 10
+NA/2
+NA == NA
+
+#Alcune funzioni utili: lavorare con gli NA
+
+vt <- c(NA,1,2,3,4.5,-6,NA)
+controllo <- is.na(vt) # restituisce TRUE dove c'e' un NA, altrimenti FALSE
+controllo
+
+y <- na.omit(vt)
+y
