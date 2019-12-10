@@ -1,57 +1,44 @@
-msg <- "heloo" # assegnazione del valore alla variabile
 
-msg # print valore della variabile
+a <- c(TRUE, FALSE, TRUE)
+b <- c(-1L, 0L, 1L) # se vogliamo creare un vettore di tipo integer dobiamo mettere L maiuscola dopo i numeri
+c <- c(-1, 0, 1)
+d <- c(-1 + 1i, 2i, 3)
+e <- c("Matteo", "Marco", "Maurizio")
 
-mode(msg) # come un oggetto viene memorizzato
+# la funzione class(x) restituisce il tipo di dato assegnato alla variabile x
 
-class(msg) # classe o tipo di un oggetto
+class(a) 
+class(b)
+class(c)
+class(d)
+class(e)
 
-x <- 5 # assegnazione numero reale
+# INDICIZZAZIONE DEI VETTORI
 
-x
+a <- c(Matteo = 1, Mario = 2, Marco = 4, Manlio = 8)
+a
 
-class(x)
+a[2] # estraggo l'elemento in posizionje n.2
+a[2] <- -2 #sostituisco l'elemento presente in posizione 2 con il -2
+a[2]
 
+a[c(1, 3)] #restituisce un vettore composto da elemento n.1 ed elemento n.3 del vettore di partenza
 
-x <- 5L # assegnazione numero intero
+a[2:4] # restituisce un vettore composto dagli elementi a partire dalla posizione n.2 che terminano con la posizione n.4
 
-x
+a
+a[c(FALSE, TRUE, FALSE, TRUE)] #restituisce un vettore composto da elementi per i quali la fun.logica è TRUE
 
-class(x)
+a[a > 4] # restituisce i valori >4, perché a > 4 genera un vettore logico (F,F,F,T)
 
-# VALORI SPECIALI
+a[a != 4] # restituisce i valori !=4, perché !=4 genera un valore logico (T,T,F,T)
 
-x <- 17/0 # inf beskonacno
+# Indicizzazione dei vettori per nome Questo tipo di indicizzazione funziona solo se sono stati 
+#definiti i nomi degli elementi del vettore.
 
-x 
+a
+a[c("Matteo", "Manlio")] # restituisce vettore composto da elementi con nome Mateto e Manilio
 
-t = -17/0 # -inf 
-
-t
-
-y <- 0/0 # NaN NotANumber (quelle forme di indecisione che richiedono l'Hospital)
-
-y 
-
-z <- x+y # se c'Ã¨ un valore NaN l'espressione deve essere NaN
-
-z 
-
-# NA indica valore mancante - l'espressione in cui c'Ã¨ un valore mancante Ã¨ sempre NA
-
-# SEQUENZE
-
-x <- 1:20 # crea una sequenza di numeri interi dall'1 al 20 
-
-x
-
-
-seq(1, 100, length=10) # crea una sequenza di 10 muneri (length), come minimo 1, come massimo 100, 
-                       # numeri fra di loro equidistanti
-
-seq(1, 100, by=5) #crea una sequenza di numeri interi da 1 a 100 con incremento (by=) 5
-
-rep(2,times=10) # ripete il numero 2 dieci volte (times=)
-
-rep(1:5,each=5) # ripete ogni elemento per cinque volte (each=)
+a[c("Matteo", "Manlio")] <- a[c("Mario", "Marco")] + a[c("Matteo", "Manlio")] # si fa la somma dei valori
+a[c("Matteo", "Manlio")] 
 
